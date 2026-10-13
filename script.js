@@ -1,5 +1,13 @@
-const services = ["Business Development", "Growth Marketing", "Market Research", "Financial Consulting",
-  "Business Consulting", "Public Relations", "HR Consulting", "Customer Service"];
+const services = [
+  { name: "Business Development", detail: "Open new markets. Build a pipeline that moves." },
+  { name: "Growth Marketing", detail: "Find the audience. Turn attention into action." },
+  { name: "Market Research", detail: "Understand the landscape before making your move." },
+  { name: "Financial Consulting", detail: "Bring clarity to the numbers behind the strategy." },
+  { name: "Business Consulting", detail: "Connect your ambition to a practical plan." },
+  { name: "Public Relations", detail: "Build relationships that strengthen your brand." },
+  { name: "HR Consulting", detail: "Align people, opportunities and business goals." },
+  { name: "Customer Service", detail: "Turn a first impression into a lasting relationship." },
+];
 
 const wins = [
   { value: "$150K", label: "Contract secured via targeted email marketing", where: "Baaraku" },
@@ -119,7 +127,8 @@ const $ = id => {
 $("win-list").innerHTML = wins.map(w => `
   <div class="win"><strong>${w.value}</strong><p>${w.label}</p><span>${w.where}</span></div>`).join("");
 
-$("service-list").innerHTML = services.map(s => `<li>${s}</li>`).join("");
+$("service-list").innerHTML = services.map((s, index) => `
+  <li><span class="service-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span><h3>${s.name}</h3><p>${s.detail}</p></li>`).join("");
 
 $("experience-list").innerHTML = experience.map(e => `
   <article class="job${e.earlier ? " earlier" : ""}">
