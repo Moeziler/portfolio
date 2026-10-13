@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moses — Portfolio</title>
+  <meta name="description" content="Portfolio of Moses — projects, skills, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a href="#top" class="logo">M<span>.</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button id="theme-toggle" aria-label="Toggle theme">◐</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">Hi, I'm</p>
+      <h1>Moses <span class="accent">Anyanwu</span></h1>
+      <h2>Software Developer</h2>
+      <p class="lead">I build clean, fast, and accessible web experiences. Replace this line with a one-sentence pitch about what you do and who you do it for.</p>
+      <div class="cta">
+        <a href="#projects" class="btn primary">View my work</a>
+        <a href="#contact" class="btn ghost">Get in touch</a>
+      </div>
+    </section>
+
+    <section id="about" class="section reveal">
+      <h3 class="section-title">About me</h3>
+      <div class="about-grid">
+        <div class="avatar" aria-hidden="true">MA</div>
+        <div>
+          <p>Placeholder bio. Talk about your background, what you're passionate about, and what kind of work you're looking for. Two or three short paragraphs work best.</p>
+          <p>When I'm not coding, I enjoy — add a personal touch here.</p>
+          <a href="#" class="btn ghost small">Download résumé</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section reveal">
+      <h3 class="section-title">Projects</h3>
+      <div class="projects" id="project-list"></div>
+    </section>
+
+    <section id="skills" class="section reveal">
+      <h3 class="section-title">Skills</h3>
+      <ul class="skills" id="skill-list"></ul>
+    </section>
+
+    <section id="contact" class="section reveal">
+      <h3 class="section-title">Contact</h3>
+      <p class="lead">Have a project in mind or just want to say hi? My inbox is open.</p>
+      <a href="mailto:anyanwusuave@gmail.com" class="btn primary">anyanwusuave@gmail.com</a>
+      <div class="socials">
+        <a href="https://github.com/Moeziler" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">X / Twitter</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Moses Anyanwu. Built from scratch.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
