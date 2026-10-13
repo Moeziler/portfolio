@@ -7,7 +7,7 @@ const wins = [
   { value: "₦16M", label: "Contract won through local client acquisition", where: "Quales Consulting" },
   { value: "3", label: "Enterprise deals from GTM strategy in 2 months", where: "Soundyaad" },
   { value: "2 / qtr", label: "International clients onboarded on average", where: "Quales Consulting" },
-  { value: "6000%", label: "Follower growth and 1M+ TikTok views", where: "Fashioniversal" },
+  { value: "6000%", label: "Follower growth and 1M TikTok views", where: "Fashioniversal" },
 ];
 
 const experience = [
@@ -28,12 +28,17 @@ const experience = [
       "Run multi-channel prospecting with Apollo.io, Brevo, LinkedIn Sales Navigator and CRM systems",
       "Partner with design, marketing, finance and ops for seamless client and learner onboarding"],
     tags: ["Partnerships", "Lead Generation", "CRM"] },
-  { role: "Growth Marketing Manager · Strategic Partnerships", company: "Soundyaad", period: "Mar 2025 – Present", place: "Lagos · Remote",
+  { role: "Growth Marketing Manager", company: "Soundyaad", period: "Oct 2025 – Present", place: "Lagos · Remote",
     summary: "Growing Soundyaad, the release OS for independent African artists — from Lagos to Nairobi, Accra to Johannesburg.",
     points: ["Closed 3 enterprise deals within 2 months of executing the GTM strategy",
       "Lead SEO, content curation and brand awareness to drive organic discovery",
       "Drive sales expansion, partnership outreach and social media strategy across African markets"],
     tags: ["GTM Strategy", "Music Tech", "SEO"] },
+  { role: "Strategic Partnerships", company: "Soundyaad", period: "Mar 2025 – Present", place: "Lagos · Remote",
+    summary: "Building partnerships and audience growth for independent African artists.",
+    points: ["Support sales expansion and customer relationship management",
+      "Develop partnerships, brand awareness and social media marketing initiatives"],
+    tags: ["Partnerships", "Music Tech", "Brand Awareness"] },
   { role: "Lead Generation Specialist", company: "Quales Consulting", period: "Feb 2025 – Aug 2025", place: "Lagos · Remote",
     summary: "Sourced and qualified partners for a global network of freelance developers, designers, analysts and PMs.",
     points: ["Secured a ₦16 million contract through local client acquisition",
@@ -58,7 +63,7 @@ const experience = [
     tags: ["Blockchain", "Consulting", "GTM"] },
   { role: "Sales Development Representative", company: "Fashioniversal", period: "Mar 2021 – Feb 2024", place: "Lagos · Hybrid", earlier: true,
     summary: "Sales and social growth for a fashion brand.",
-    points: ["Drove a 6000% increase in followers and 1M+ views on TikTok",
+    points: ["Drove a 6000% increase in followers and 1M views on TikTok",
       "Managed content, influencer partnerships, SEO and CRM-driven customer retention"],
     tags: ["Social Growth", "Fashion", "Influencer Marketing"] },
   { role: "Retail Sales Assistant", company: "EK Suppliers", period: "Nov 2019 – Nov 2020", place: "Benin City · Onsite", earlier: true,
@@ -72,7 +77,7 @@ const certifications = [
   { name: "Travel Industry Fundamentals", issuer: "Amadeus", date: "Aug 2026", url: "https://drive.google.com/file/d/1-Yu9hkKelAU5FKq_GAxgMa086N24MUpw/view?usp=sharing", featured: true },
   { name: "Claude 101", issuer: "Anthropic", date: "May 2026", url: "https://verify.skilljar.com/c/p5vc7tc3pmaq", featured: true },
   { name: "Digital Marketing", issuer: "Udemy", date: "Dec 2025", url: "https://www.udemy.com/certificate/UC-dd5fbb07-abb9-4a4a-bd4a-f1aeb8aed436/", featured: true },
-  { name: "Inbound Sales", issuer: "HubSpot Academy", date: "Jun 2024", url: "https://app-eu1.hubspot.com/academy/achievements/054qbdpj/en/1/moses-anyanwu/inbound-sales", featured: true },
+  { name: "Inbound Sales", issuer: "HubSpot Academy", date: "Jun 2024", expires: "2026-07-31", expiryLabel: "Jul 2026", url: "https://app-eu1.hubspot.com/academy/achievements/054qbdpj/en/1/moses-anyanwu/inbound-sales", featured: true },
   { name: "EF SET Certificate (English)", issuer: "EF SET", date: "Jun 2024", url: "https://cert.efset.org/dnLe2K", featured: true },
   { name: "Introduction to Business Intelligence", issuer: "Corporate Finance Institute", date: "Jun 2023", url: "http://credentials.corporatefinanceinstitute.com/ccfc3182-5286-489c-bb56-41771d8060d2" },
   { name: "Business Valuation Modeling Part II", issuer: "Corporate Finance Institute", date: "Nov 2022", url: "http://credentials.corporatefinanceinstitute.com/5159bd18-daf1-4321-a9df-ce35c11dcf2d" },
@@ -104,7 +109,12 @@ const education = [
   { school: "Corporate Finance Institute® (CFI)", degree: "Financial Modeling & Valuation Analyst (FMVA®)", detail: "Accounting & Finance", period: "Sep – Nov 2022" },
 ];
 
-const $ = id => document.getElementById(id);
+/** @param {string} id */
+const $ = id => {
+  const element = document.getElementById(id);
+  if (!element) throw new Error(`Missing element: ${id}`);
+  return element;
+};
 
 $("win-list").innerHTML = wins.map(w => `
   <div class="win"><strong>${w.value}</strong><p>${w.label}</p><span>${w.where}</span></div>`).join("");
@@ -114,7 +124,7 @@ $("service-list").innerHTML = services.map(s => `<li>${s}</li>`).join("");
 $("experience-list").innerHTML = experience.map(e => `
   <article class="job${e.earlier ? " earlier" : ""}">
     <div class="job-head">
-      <div><h4>${e.role}</h4><p class="company">${e.company}</p></div>
+      <div><h3>${e.role}</h3><p class="company">${e.company}</p></div>
       <div class="meta"><span>${e.period}</span><span>${e.place}</span></div>
     </div>
     <p class="summary">${e.summary}</p>
@@ -122,40 +132,97 @@ $("experience-list").innerHTML = experience.map(e => `
     <div class="tags">${e.tags.map(t => `<span>${t}</span>`).join("")}</div>
   </article>`).join("");
 
-$("exp-toggle").addEventListener("click", e => {
+$("exp-toggle").hidden = false;
+$("exp-toggle").addEventListener("click", () => {
   const open = $("experience-list").classList.toggle("show-all");
-  e.target.textContent = open ? "Hide earlier roles" : "Show earlier roles";
+  $("exp-toggle").textContent = open ? "Hide earlier roles" : "Show earlier roles";
+  $("exp-toggle").setAttribute("aria-expanded", String(open));
 });
 
+const today = new Date().toISOString().slice(0, 10);
 $("cert-list").innerHTML = certifications.map(c => `
   <a class="cert${c.featured ? " featured" : " extra"}" href="${c.url}" target="_blank" rel="noopener">
     <span class="issuer">${c.issuer}</span>
-    <h4>${c.name}</h4>
+    <h3>${c.name}</h3>
+    ${c.expires ? `<span class="credential-status">${today > c.expires ? "Expired" : "Expires"} ${c.expiryLabel}</span>` : ""}
     <span class="date">${c.date} · View credential ↗</span>
   </a>`).join("");
-$("stat-certs").textContent = certifications.length;
-$("cert-toggle").addEventListener("click", e => {
+$("stat-certs").textContent = String(certifications.length);
+$("cert-toggle").hidden = false;
+$("cert-toggle").addEventListener("click", () => {
   const open = $("cert-list").classList.toggle("show-all");
-  e.target.textContent = open ? "Show fewer" : "Show all certifications";
+  $("cert-toggle").textContent = open ? "Show fewer" : "Show all certifications";
+  $("cert-toggle").setAttribute("aria-expanded", String(open));
 });
 
 $("skill-list").innerHTML = Object.entries(skills).map(([group, items]) => `
-  <div class="skill-group"><h4>${group}</h4><ul class="skills">${items.map(s => `<li>${s}</li>`).join("")}</ul></div>`).join("");
+  <div class="skill-group"><h3>${group}</h3><ul class="skills">${items.map(s => `<li>${s}</li>`).join("")}</ul></div>`).join("");
 
 $("edu-list").innerHTML = education.map(e => `
-  <div class="edu-item"><span class="date">${e.period}</span><h4>${e.degree}</h4><p>${e.school} · ${e.detail}</p></div>`).join("");
+  <div class="edu-item"><span class="date">${e.period}</span><h3>${e.degree}</h3><p>${e.school} · ${e.detail}</p></div>`).join("");
 
-$("year").textContent = new Date().getFullYear();
+$("year").textContent = String(new Date().getFullYear());
 
 const root = document.documentElement;
-const saved = localStorage.getItem("theme");
-if (saved) root.dataset.theme = saved;
+let savedTheme = null;
+try {
+  savedTheme = localStorage.getItem("theme");
+} catch {
+  savedTheme = null;
+}
+if (savedTheme === "light" || savedTheme === "dark") root.dataset.theme = savedTheme;
+
+const syncThemeButton = () => {
+  const light = root.dataset.theme === "light";
+  $("theme-toggle").setAttribute("aria-pressed", String(light));
+  $("theme-toggle").setAttribute("aria-label", `Switch to ${light ? "dark" : "light"} theme`);
+};
+syncThemeButton();
+$("theme-toggle").hidden = false;
 $("theme-toggle").addEventListener("click", () => {
   root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
-  localStorage.setItem("theme", root.dataset.theme);
+  syncThemeButton();
+  try {
+    localStorage.setItem("theme", root.dataset.theme);
+  } catch {
+    return;
+  }
 });
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } });
-}, { threshold: 0.08 });
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+/** @param {boolean} open */
+const setMenuOpen = open => {
+  $("nav-links").classList.toggle("open", open);
+  $("menu-toggle").setAttribute("aria-expanded", String(open));
+  $("menu-toggle").textContent = open ? "Close" : "Menu";
+};
+$("menu-toggle").hidden = false;
+$("menu-toggle").addEventListener("click", () => {
+  setMenuOpen($("menu-toggle").getAttribute("aria-expanded") !== "true");
+});
+$("nav-links").addEventListener("click", event => {
+  if (event.target instanceof Element && event.target.closest("a")) setMenuOpen(false);
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && $("menu-toggle").getAttribute("aria-expanded") === "true") {
+    setMenuOpen(false);
+    $("menu-toggle").focus();
+  }
+});
+document.addEventListener("click", event => {
+  if (event.target instanceof Node && !document.querySelector(".nav")?.contains(event.target)) {
+    setMenuOpen(false);
+  }
+});
+document.querySelector(".nav")?.classList.add("navigation-ready");
+
+if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0 });
+  document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
+}

@@ -3,26 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moses Anyanwu, FMVA® — Business Development & Partnerships</title>
+  <title>Moses Anyanwu, FMVA® — Business Development &amp; Partnerships</title>
   <meta name="description" content="Moses Anyanwu, FMVA® — Business Development, Partnerships, Digital Marketing and Sales professional based in Lagos, Nigeria." />
+  <meta name="theme-color" content="#0f0b08" />
+  <meta property="og:title" content="Moses Anyanwu, FMVA® — Business Development &amp; Partnerships" />
+  <meta property="og:description" content="New markets. Lasting partnerships. Measurable growth. Explore my experience, key wins and credentials." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
   <header class="nav">
-    <a href="#top" class="logo">MA<span>.</span></a>
-    <nav>
+    <a href="#top" class="logo" aria-label="Moses Anyanwu — home">MA<span>.</span></a>
+    <nav id="nav-links" aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#certifications">Certifications</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-      <button id="theme-toggle" aria-label="Toggle theme">◐</button>
     </nav>
+    <div class="nav-controls">
+      <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" hidden>Menu</button>
+      <button id="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" hidden>◐</button>
+    </div>
   </header>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
+    <noscript><p class="no-script">Enable JavaScript to view the full experience and credential lists, or <a href="assets/Moses-Anyanwu-CV.pdf">read my CV</a>.</p></noscript>
     <section class="hero">
       <p class="eyebrow">Hi, I'm</p>
       <h1>Moses <span class="accent">Anyanwu</span><sup class="cred">FMVA®</sup></h1>
@@ -33,7 +43,7 @@
         <a href="assets/Moses-Anyanwu-CV.pdf" class="btn ghost" download>Download CV</a>
       </div>
       <ul class="stats">
-                <li><strong>5+</strong><span>Years in BD &amp; growth</span></li>
+        <li><strong>5+</strong><span>Years in BD &amp; growth</span></li>
         <li><strong>$290K+</strong><span>In deals closed</span></li>
         <li><strong>4.6K+</strong><span>LinkedIn followers</span></li>
         <li><strong id="stat-certs">20+</strong><span>Certifications</span></li>
@@ -41,12 +51,12 @@
     </section>
 
     <section id="wins" class="section reveal">
-      <h3 class="section-title">Key wins</h3>
+      <h2 class="section-title">Key wins</h2>
       <div class="wins" id="win-list"></div>
     </section>
 
     <section id="about" class="section reveal">
-      <h3 class="section-title">About me</h3>
+      <h2 class="section-title">About me</h2>
       <div class="about-grid">
         <div class="avatar" aria-hidden="true">MA</div>
         <div>
@@ -55,34 +65,34 @@
           <p>Backed by the FMVA® from the Corporate Finance Institute, I bring a finance lens to every deal — and the resilience to keep the pipeline moving.</p>
         </div>
       </div>
-      <h4 class="sub-title">What I do</h4>
+      <h3 class="sub-title">What I do</h3>
       <ul class="services" id="service-list"></ul>
     </section>
 
     <section id="experience" class="section reveal">
-      <h3 class="section-title">Experience</h3>
+      <h2 class="section-title">Experience</h2>
       <div class="timeline" id="experience-list"></div>
-      <button class="btn ghost small" id="exp-toggle">Show earlier roles</button>
+      <button class="btn ghost small" id="exp-toggle" type="button" aria-expanded="false" aria-controls="experience-list" hidden>Show earlier roles</button>
     </section>
 
     <section id="certifications" class="section reveal">
-      <h3 class="section-title">Certifications</h3>
+      <h2 class="section-title">Certifications</h2>
       <div class="certs" id="cert-list"></div>
-      <button class="btn ghost small" id="cert-toggle">Show all certifications</button>
+      <button class="btn ghost small" id="cert-toggle" type="button" aria-expanded="false" aria-controls="cert-list" hidden>Show all certifications</button>
     </section>
 
     <section id="skills" class="section reveal">
-      <h3 class="section-title">Skills &amp; Tools</h3>
+      <h2 class="section-title">Skills &amp; Tools</h2>
       <div class="skill-groups" id="skill-list"></div>
     </section>
 
     <section id="education" class="section reveal">
-      <h3 class="section-title">Education</h3>
+      <h2 class="section-title">Education</h2>
       <div class="edu" id="edu-list"></div>
     </section>
 
     <section id="contact" class="section reveal">
-      <h3 class="section-title">Let's work together</h3>
+      <h2 class="section-title">Let's work together</h2>
       <p class="lead">Looking to break into new markets, build partnerships or grow your pipeline? Let's talk.</p>
       <a href="mailto:anyanwusuave@gmail.com" class="btn primary">anyanwusuave@gmail.com</a>
       <div class="socials">
