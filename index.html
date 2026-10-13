@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moses — Portfolio</title>
-  <meta name="description" content="Portfolio of Moses — projects, skills, and contact." />
+  <title>Moses Anyanwu, FMVA® — Business Development & Partnerships</title>
+  <meta name="description" content="Moses Anyanwu, FMVA® — Business Development, Partnerships, Digital Marketing and Sales professional based in Lagos, Nigeria." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="nav">
-    <a href="#top" class="logo">M<span>.</span></a>
+    <a href="#top" class="logo">MA<span>.</span></a>
     <nav>
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#certifications">Certifications</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
       <button id="theme-toggle" aria-label="Toggle theme">◐</button>
@@ -24,13 +25,24 @@
   <main id="top">
     <section class="hero">
       <p class="eyebrow">Hi, I'm</p>
-      <h1>Moses <span class="accent">Anyanwu</span></h1>
-      <h2>Software Developer</h2>
-      <p class="lead">I build clean, fast, and accessible web experiences. Replace this line with a one-sentence pitch about what you do and who you do it for.</p>
+      <h1>Moses <span class="accent">Anyanwu</span><sup class="cred">FMVA®</sup></h1>
+      <h2>Business Development &amp; Partnerships</h2>
+      <p class="lead">Helping organizations discover new markets <em>while sending memes</em>. I turn cold prospects into long-term partners across SaaS, HR tech, travel, music, blockchain and creative industries — based in Lagos, working globally.</p>
       <div class="cta">
-        <a href="#projects" class="btn primary">View my work</a>
-        <a href="#contact" class="btn ghost">Get in touch</a>
+        <a href="#experience" class="btn primary">See my experience</a>
+        <a href="assets/Moses-Anyanwu-CV.pdf" class="btn ghost" download>Download CV</a>
       </div>
+      <ul class="stats">
+                <li><strong>5+</strong><span>Years in BD &amp; growth</span></li>
+        <li><strong>$290K+</strong><span>In deals closed</span></li>
+        <li><strong>4.6K+</strong><span>LinkedIn followers</span></li>
+        <li><strong id="stat-certs">20+</strong><span>Certifications</span></li>
+      </ul>
+    </section>
+
+    <section id="wins" class="section reveal">
+      <h3 class="section-title">Key wins</h3>
+      <div class="wins" id="win-list"></div>
     </section>
 
     <section id="about" class="section reveal">
@@ -38,36 +50,49 @@
       <div class="about-grid">
         <div class="avatar" aria-hidden="true">MA</div>
         <div>
-          <p>Placeholder bio. Talk about your background, what you're passionate about, and what kind of work you're looking for. Two or three short paragraphs work best.</p>
-          <p>When I'm not coding, I enjoy — add a personal touch here.</p>
-          <a href="#" class="btn ghost small">Download résumé</a>
+          <p>I'm a Business Development, Partnerships and Growth Marketing professional with 5+ years driving user acquisition, revenue growth and market expansion — and an Accountancy graduate who still loves a good spreadsheet. I design go-to-market strategies, build partnerships and convert high-value prospects through email, LinkedIn, cold calling and CRM-driven pipelines. My mission: unlock new opportunities, nurture partnerships, and drive revenue for innovative, forward-thinking organizations.</p>
+          <p>My journey spans HR, music marketing, corporate arts, travel, identity management, fashion and retail. HR taught me to read people and align them with business goals; fashion and retail sharpened my instinct for market trends and sales. Together they've given me a blend of relationship-building, strategic foresight and problem-solving.</p>
+          <p>Backed by the FMVA® from the Corporate Finance Institute, I bring a finance lens to every deal — and the resilience to keep the pipeline moving.</p>
         </div>
       </div>
+      <h4 class="sub-title">What I do</h4>
+      <ul class="services" id="service-list"></ul>
     </section>
 
-    <section id="projects" class="section reveal">
-      <h3 class="section-title">Projects</h3>
-      <div class="projects" id="project-list"></div>
+    <section id="experience" class="section reveal">
+      <h3 class="section-title">Experience</h3>
+      <div class="timeline" id="experience-list"></div>
+      <button class="btn ghost small" id="exp-toggle">Show earlier roles</button>
+    </section>
+
+    <section id="certifications" class="section reveal">
+      <h3 class="section-title">Certifications</h3>
+      <div class="certs" id="cert-list"></div>
+      <button class="btn ghost small" id="cert-toggle">Show all certifications</button>
     </section>
 
     <section id="skills" class="section reveal">
-      <h3 class="section-title">Skills</h3>
-      <ul class="skills" id="skill-list"></ul>
+      <h3 class="section-title">Skills &amp; Tools</h3>
+      <div class="skill-groups" id="skill-list"></div>
+    </section>
+
+    <section id="education" class="section reveal">
+      <h3 class="section-title">Education</h3>
+      <div class="edu" id="edu-list"></div>
     </section>
 
     <section id="contact" class="section reveal">
-      <h3 class="section-title">Contact</h3>
-      <p class="lead">Have a project in mind or just want to say hi? My inbox is open.</p>
+      <h3 class="section-title">Let's work together</h3>
+      <p class="lead">Looking to break into new markets, build partnerships or grow your pipeline? Let's talk.</p>
       <a href="mailto:anyanwusuave@gmail.com" class="btn primary">anyanwusuave@gmail.com</a>
       <div class="socials">
-        <a href="https://github.com/Moeziler" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/moses-anyanwu/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#" target="_blank" rel="noopener">X / Twitter</a>
+        <a href="https://www.linkedin.com/in/moses-anyanwu/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="assets/Moses-Anyanwu-CV.pdf" download>Download CV ↓</a>
       </div>
     </section>
   </main>
 
-  <footer>© <span id="year"></span> Moses Anyanwu. Built from scratch.</footer>
+  <footer>© <span id="year"></span> Moses Anyanwu, FMVA®</footer>
   <script src="script.js"></script>
 </body>
 </html>
