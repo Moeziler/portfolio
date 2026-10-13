@@ -1,9 +1,10 @@
 :root {
-  --bg: #0b0d12; --surface: #141821; --text: #e7e9ee; --muted: #9aa3b2;
-  --accent: #7c5cff; --accent-2: #22d3ee; --border: #232836;
+  --bg: #0f0b08; --surface: #1a1410; --text: #f3ece6; --muted: #b3a597;
+  --accent: #ff6a00; --accent-2: #ffb347; --accent-3: #ee0979; --border: #2e241c;
+  --gradient: linear-gradient(135deg, #ff3d00 0%, #ff6a00 45%, #ffb347 100%);
 }
 [data-theme="light"] {
-  --bg: #f7f8fb; --surface: #ffffff; --text: #141821; --muted: #5b6475; --border: #e3e6ee;
+  --bg: #fffaf5; --surface: #ffffff; --text: #1f140c; --muted: #6b5a4c; --border: #f1e2d3;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -13,14 +14,15 @@ a { color: inherit; text-decoration: none; }
 .nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center;
   padding: 1rem 6vw; backdrop-filter: blur(12px); background: color-mix(in srgb, var(--bg) 75%, transparent); border-bottom: 1px solid var(--border); }
 .logo { font-weight: 800; font-size: 1.5rem; }
-.logo span, .accent { color: var(--accent); }
+.logo span { color: var(--accent); }
+.accent { background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .nav nav { display: flex; gap: 1.5rem; align-items: center; }
 .nav nav a { color: var(--muted); font-weight: 500; transition: color .2s; }
 .nav nav a:hover { color: var(--text); }
 #theme-toggle { background: none; border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: .25rem .6rem; cursor: pointer; font-size: 1rem; }
 
 main { max-width: 1100px; margin: 0 auto; padding: 0 6vw; }
-.hero { min-height: 88vh; display: flex; flex-direction: column; justify-content: center; }
+.hero { position: relative; min-height: 88vh; display: flex; flex-direction: column; justify-content: center; }
 .eyebrow { color: var(--accent-2); font-weight: 600; margin-bottom: .5rem; }
 .hero h1 { font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: 1.05; font-weight: 800; letter-spacing: -.03em; }
 .hero h2 { font-size: clamp(1.4rem, 4vw, 2.4rem); color: var(--muted); font-weight: 600; margin: .5rem 0 1.25rem; }
@@ -28,7 +30,7 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 6vw; }
 .cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 .btn { display: inline-block; padding: .8rem 1.4rem; border-radius: 10px; font-weight: 600; transition: transform .2s, box-shadow .2s, background .2s; }
-.btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; }
+.btn.primary { background: var(--gradient); color: #fff; }
 .btn.primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -10px var(--accent); }
 .btn.ghost { border: 1px solid var(--border); }
 .btn.ghost:hover { border-color: var(--accent); }
@@ -41,7 +43,7 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 6vw; }
 .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: center; }
 .about-grid p { color: var(--muted); margin-bottom: 1rem; }
 .avatar { width: 220px; height: 220px; border-radius: 24px; display: grid; place-items: center; font-size: 4rem; font-weight: 800;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; }
+  background: var(--gradient); color: #fff; }
 
 .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: transform .25s, border-color .25s; display: flex; flex-direction: column; }
@@ -75,3 +77,8 @@ footer { text-align: center; padding: 2rem; color: var(--muted); font-size: .9re
   .about-grid { grid-template-columns: 1fr; }
   .avatar { width: 140px; height: 140px; font-size: 2.5rem; }
 }
+
+.hero::before { content: ""; position: absolute; z-index: -1; right: -10%; top: 15%; width: 520px; height: 520px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,106,0,.35), rgba(255,61,0,.12) 45%, transparent 70%); filter: blur(40px); pointer-events: none; }
+.section-title::after { background: linear-gradient(90deg, var(--accent), transparent); }
+::selection { background: var(--accent); color: #fff; }
