@@ -235,7 +235,3 @@ if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-mot
   }, { threshold: 0 });
   document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
 }
-git checkout devin/1791895678-editorial-redesign
-git add .
-git commit -m "Fix mobile arrow rendering with SVGs or CSS patch"
-git push origin devin/1791895678-editorial-redesign
